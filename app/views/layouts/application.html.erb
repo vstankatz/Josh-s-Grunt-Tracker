@@ -10,7 +10,16 @@
 </head>
 
 <body>
-
+  <div class="nav-bar table-responsive">
+    <table class="table">
+      <th><%= link_to "DIVISIONS", divisions_path%></th>
+      <% if user_signed_in? %>
+      <th><%= link_to "Sign-Out", destroy_user_session_path, :method => :delete%></th>
+      <% else %>
+      <th><%= link_to "Sign-In/Sign-Up", new_user_session_path%></th>
+      <% end %>
+    </table>
+  </div>
   <%= flash[:alert] %>
   <%= flash[:notice] %>
   <%= yield %>
